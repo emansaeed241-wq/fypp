@@ -1,0 +1,15 @@
+import pandas as pd
+
+df = pd.read_excel("data/Anemia_Thalassemia_3Class_Dataset.xlsx")
+
+print(df.head())
+
+print(df.shape)
+
+print(df.columns)
+
+print(df.isnull().sum())
+
+print(df['Label'].value_counts())
+
+print("Duplicate rows:", df.duplicated().sum())

@@ -6,16 +6,6 @@ import pandas as pd
 import shap
 import matplotlib.pyplot as plt
 
-st.sidebar.header("About")
-st.sidebar.write(
-    "This tool predicts Normal / Anemia / Thalassemia from CBC blood values "
-    "using a trained Random Forest model, with SHAP-based explanations."
-)
-st.sidebar.warning(
-    "⚠️ This is a screening aid for a Final Year Project, NOT a medical "
-    "diagnosis. Always consult a qualified doctor."
-)
-
 # Load our saved, tuned model
 model = joblib.load("trained_model.joblib")
 features = ['Gender', 'Age', 'Hb', 'RBC', 'MCV', 'MCH']
@@ -46,12 +36,6 @@ if st.session_state.page == "welcome":
         if st.button("Let's Get Started ➡", use_container_width=True):
             st.session_state.page = "input"
             st.rerun()
-
-    st.markdown("<br><br>", unsafe_allow_html=True)
-    st.caption(
-        "⚠️ This is a Final Year Project screening tool, NOT a substitute "
-        "for professional medical diagnosis."
-    )
 
 # ---------------------------------------------------------------
 # PAGE 1: INPUT FORM
